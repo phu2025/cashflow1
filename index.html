@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2022.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    span.s1 {font: 12.0px 'Apple Color Emoji'}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="vi"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Cashflow Hiện Đại&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: Arial, sans-serif; padding: 20px; background: #f1f5f9; color: #333; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 { text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.section { background: white; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn { padding: 10px 16px; margin: 5px; background: #0ea5e9; color: white; border: none; border-radius: 6px; cursor: pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn:disabled { background: #ccc; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.row { display: flex; flex-wrap: wrap; gap: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.col { flex: 1 1 250px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>ul { padding-left: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;<span class="s1">💰</span> Cashflow Hiện Đại&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section" id="playerInfo"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;Cơ hội đầu tư&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="row" id="opportunities"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;<span class="s1">📈</span> Tin tức kinh tế&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul id="newsList"&gt;&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="btn" onclick="simulateMonth()"&gt;<span class="s1">▶️</span> Qua tháng mới&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const gameState = {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>player: {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>name: "Người chơi 1",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>job: "Kỹ sư",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>salary: 1500,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>expenses: 1000,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>assets: [],</p>
+<p class="p1"><span class="Apple-converted-space">        </span>liabilities: [],</p>
+<p class="p1"><span class="Apple-converted-space">        </span>cash: 2000,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>passiveIncome: 0,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>netWorth: 0,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>risk: 0.1</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>economy: {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>fedRate: 5.25,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>unemployment: 3.8,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>pmi: 51.3,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inflation: 3.5,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>news: ["Fed nâng lãi suất thêm 0.25%", "PMI dịch vụ tăng nhẹ", "Tổng thống ban hành đạo luật hỗ trợ startup"]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opportunities: [</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ type: "real_estate", name: "Mua căn hộ cho thuê", price: 60000, income: 500, risk: 0.05 },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ type: "stock", name: "Cổ phiếu AI startup", price: 5000, income: 0, chance: 0.3, risk: 0.2 },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ type: "crypto", name: "Đầu tư Bitcoin", price: 3000, income: 0, chance: 0.5, risk: 0.4 },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ type: "business", name: "Startup ứng dụng học AI", price: 10000, income: 1000, risk: 0.3 }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>],</p>
+<p class="p1"><span class="Apple-converted-space">      </span>events: [</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ text: "Khủng hoảng tài chính - thị trường giảm 30%", effect: (state) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>state.player.cash *= 0.7;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>state.player.risk += 0.1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}},</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ text: "Chính phủ hỗ trợ người dân - nhận thêm 2000$", effect: (state) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>state.player.cash += 2000;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>]</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateUI() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const p = gameState.player;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('playerInfo').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Thông tin người chơi&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Nghề nghiệp:&lt;/strong&gt; ${p.job}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Tiền mặt:&lt;/strong&gt; $${p.cash.toFixed(2)}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Thu nhập bị động:&lt;/strong&gt; $${p.passiveIncome}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Chi phí:&lt;/strong&gt; $${p.expenses}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Giá trị ròng:&lt;/strong&gt; $${calculateNetWorth(p)}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;strong&gt;Mức rủi ro:&lt;/strong&gt; ${(p.risk * 100).toFixed(1)}%&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const oppDiv = document.getElementById('opportunities');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>oppDiv.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gameState.opportunities.forEach((opp, idx) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const btnDisabled = p.cash &lt; opp.price ? 'disabled' : '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const item = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>item.className = 'col';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>item.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div style="padding:10px; background:#e2e8f0; border-radius:8px"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;${opp.name}&lt;/strong&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span><span class="s1">💵</span> Giá: $${opp.price}&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span><span class="s1">📈</span> Thu nhập: $${opp.income || 0}&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span><span class="s1">⚠️</span> Rủi ro: ${(opp.risk * 100).toFixed(1)}%&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn" ${btnDisabled} onclick="invest(${idx})"&gt;Đầu tư&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>oppDiv.appendChild(item);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>const newsUl = document.getElementById('newsList');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>newsUl.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gameState.economy.news.forEach(news =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const li = document.createElement('li');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>li.innerText = news;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>newsUl.appendChild(li);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function calculateNetWorth(player) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const assets = player.assets.reduce((sum, a) =&gt; sum + (a.value || 0), 0);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const liabilities = player.liabilities.reduce((sum, l) =&gt; sum + (l.amount || 0), 0);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return assets - liabilities + player.cash;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function invest(index) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const opp = gameState.opportunities[index];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const p = gameState.player;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (p.cash &gt;= opp.price) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.cash -= opp.price;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>p.assets.push({ ...opp, value: opp.price });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (opp.income) p.passiveIncome += opp.income;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (opp.risk) p.risk += opp.risk;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateUI();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function simulateMonth() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const p = gameState.player;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.cash += p.salary + p.passiveIncome - p.expenses;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>p.netWorth = calculateNetWorth(p);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (Math.random() &lt; p.risk) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const event = gameState.events[Math.floor(Math.random() * gameState.events.length)];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>event.effect(gameState);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert("[TIN KHẨN] " + event.text);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>updateUI();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>updateUI();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
